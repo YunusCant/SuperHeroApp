@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct ListeRowView: View {
+    var hero : Hero
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Image(hero.GorselIsmi)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 150, height: 100, alignment: .leading)
+                .clipShape(Circle())
+                
+            Spacer()
+            VStack{
+                Text(hero.HeroName)
+                    .font(.title)
+                    .foregroundStyle(.blue)
+                Text(hero.TrueName)
+                    .bold()
+            }.padding()
+        }
     }
 }
 
 #Preview {
-    ListeRowView()
+    ListeRowView(hero: IronMan)
 }

@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ListeView: View {
     var body: some View {
-        VStack {
-            Text("")
+        NavigationStack{
+            List(HeroDizisi) { x in
+                NavigationLink(destination: HeroDetails(SecilenHero: x)) {
+                    ListeRowView(hero: x)
+                }
+                
+            }.navigationTitle(Text("Süper Kahramanlar"))
         }
     }
 }
